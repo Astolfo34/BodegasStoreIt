@@ -40,7 +40,7 @@ public class Bodega {
     /**
      *-----------------------------------------------------------------------------------------}
      */
-    //-----------------------{metodos getter y setter}------------------------------------------
+    //-----------------------{metodos getter y setter}------------------------------------------{
 
     public ArrayList<Sector> getListaSectoresBodega() {
         return listaSectoresBodega;
@@ -113,5 +113,75 @@ public class Bodega {
     public void setId(int id) {
         this.id = id;
     }
+    /**
+     * ----------------------------------------------------------------------------------------------------}
+     */
 
+
+    /**
+     * ------------------------------METODOS CRUD --------------------------------------------{
+     */
+    /**
+     * Este metodo debe recibir un objeto de tipo cliente capturado de la vista
+     * el cual se analisa si existe en la base de datos , y si es nuevo se añade
+     * @param clienteNuevo
+     * @return
+     */
+    public Cliente crearCliente (Cliente clienteNuevo){
+        if(verificarExistencia(clienteNuevo,listaClientesBodega)){
+            listaClientesBodega.add(clienteNuevo);
+        }else{
+            System.out.println("###########el cliente ya existe, no se puede crear################");
+        }
+        return null;
+    }
+
+    /**
+     * Metodo que recibe un objeto cliente capturado de la vista, para ser eliminado
+     * @param clienteA_eliminar
+     */
+    public void eliminarCliente(Cliente clienteA_eliminar){
+        if(eliminarObjeto(clienteA_eliminar,listaClientesBodega)){
+            System.out.println("cliente : "+clienteA_eliminar.getNombre()+" a sido eliminado");
+        }else{
+            System.out.println("el cliente no se pudo remover");
+        }
+    }
+
+    /**
+     * Metodo que recibe un nuevo objeto capturado que comparte el id del cliente
+     * para ser comparado con el objeto real en a lista, eliminarlo, y agregar el nuevo objeto
+     * @param clienteActualizado
+     */
+    public void actualizarCliente(Cliente clienteActualizado){
+        for (Cliente aux:listaClientesBodega) {
+            if(aux.getId()==clienteActualizado.getId()){
+                eliminarObjeto(aux,listaClientesBodega);
+                crearCliente(clienteActualizado);
+                break;
+            }
+        }
+    }
+
+    /**
+     * Metodo generico que comprueba si una lista posee un elemento , si lo tiene retorna un TRUE
+     * @param objetoPreguntado
+     * @param listaAbuscar
+     * @return
+     * @param <K>
+     */
+    public  <K> boolean verificarExistencia(K objetoPreguntado,ArrayList<K> listaAbuscar) {
+        return listaAbuscar.contains(objetoPreguntado);
+    }
+
+    /**
+     * Metodo generico que dado un objeto y una lista correspondiente, elimina y da como resultado true
+     * @param elementoA_borrar
+     * @param listaAborrar
+     * @return
+     * @param <K>
+     */
+    public <K> boolean eliminarObjeto(K elementoA_borrar, ArrayList<K> listaAborrar){
+        return listaAborrar.remove(elementoA_borrar);
+    }
 }
