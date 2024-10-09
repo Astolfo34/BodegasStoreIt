@@ -5,6 +5,7 @@ public class ModelFactoryController {
 
     Bodega bodega;
 
+
     private static class SingletonHolder {
         private final static ModelFactoryController eINSTANCE = new ModelFactoryController();
     }

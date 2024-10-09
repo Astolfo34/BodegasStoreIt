@@ -176,6 +176,7 @@ public  class ArchivoUtil {
     }
 
 
+
     public static void salvarRecursoSerializadoXML(String rutaArchivo, Object objeto) throws IOException {
         try (XMLEncoder codificadorXML = new XMLEncoder(new FileOutputStream(rutaArchivo))) {
             codificadorXML.setPersistenceDelegate(LocalDate.class, new PersistenceDelegate() {
