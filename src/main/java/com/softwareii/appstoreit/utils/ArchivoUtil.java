@@ -131,7 +131,6 @@ public  class ArchivoUtil {
         //		horaFechaSistema = hora+"-"+minuto;
     }
 
-
     //------------------------------------SERIALIZACIÓN  y XML
 
     /**
@@ -161,7 +160,6 @@ public  class ArchivoUtil {
         return aux;
     }
 
-
     public static void salvarRecursoSerializado(String rutaArchivo, Object object) throws Exception {
         ObjectOutputStream oos = null;
         try {
@@ -174,8 +172,6 @@ public  class ArchivoUtil {
                 oos.close();
         }
     }
-
-
 
     public static void salvarRecursoSerializadoXML(String rutaArchivo, Object objeto) throws IOException {
         try (XMLEncoder codificadorXML = new XMLEncoder(new FileOutputStream(rutaArchivo))) {

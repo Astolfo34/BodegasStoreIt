@@ -1,8 +1,11 @@
 package com.softwareii.appstoreit.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Bodega {
+public class Bodega implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     //----------atributos de la clase principal pertenecientes al universo de la empresa StoreIt
     private ArrayList<Sector>listaSectoresBodega = new ArrayList<Sector>();
     private ArrayList<Cliente>listaClientesBodega = new ArrayList<Cliente>();
