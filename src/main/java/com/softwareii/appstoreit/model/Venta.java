@@ -13,6 +13,10 @@ public class Venta {
         this.informeVenta = informeVenta;
     }
 
+    public Venta() {
+
+    }
+
     public String getFecha() {
         return fecha;
     }

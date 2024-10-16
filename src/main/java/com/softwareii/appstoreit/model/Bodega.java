@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class Bodega {
     //----------atributos de la clase principal pertenecientes al universo de la empresa StoreIt
-    private ArrayList<Sector>listaSectoresBodega = new ArrayList<Sector>();
-    private ArrayList<Cliente>listaClientesBodega = new ArrayList<Cliente>();
-    private ArrayList<Operario>listaOperariosBodega = new ArrayList<Operario>();
-    private ArrayList<AgenteVenta>listaAgentesVentasBodega = new ArrayList<AgenteVenta>();
-    private ArrayList<Mercancia>listaMercanciasBodega = new ArrayList<Mercancia>();
-    private ArrayList<Venta>listaVentasBodega = new ArrayList<Venta>();
-    private ArrayList<Usuario>listaUsuariosPlataformaBodega= new ArrayList<Usuario>();
+    public ArrayList<Sector>listaSectoresBodega = new ArrayList<Sector>();
+    public ArrayList<Cliente>listaClientesBodega = new ArrayList<Cliente>();
+    public ArrayList<Operario>listaOperariosBodega = new ArrayList<Operario>();
+    public ArrayList<AgenteVenta>listaAgentesVentasBodega = new ArrayList<AgenteVenta>();
+    public ArrayList<Mercancia>listaMercanciasBodega = new ArrayList<Mercancia>();
+    public ArrayList<Venta>listaVentasBodega = new ArrayList<Venta>();
+    public ArrayList<Usuario>listaUsuariosPlataformaBodega= new ArrayList<Usuario>();
     private String nombreBodega;
     private int id;
     //----------------------{constructor principal}----------------------------------
@@ -128,7 +128,7 @@ public class Bodega {
      * @return
      */
     public Cliente crearCliente (Cliente clienteNuevo){
-        if(verificarExistencia(clienteNuevo,listaClientesBodega)){
+        if(!verificarExistencia(clienteNuevo,listaClientesBodega)){ //el metodo interno retorna true o false
             listaClientesBodega.add(clienteNuevo);
         }else{
             System.out.println("###########el cliente ya existe, no se puede crear################");
@@ -170,7 +170,7 @@ public class Bodega {
      * @return
      * @param <K>
      */
-    public  <K> boolean verificarExistencia(K objetoPreguntado,ArrayList<K> listaAbuscar) {
+    public static  <K> boolean verificarExistencia(K objetoPreguntado,ArrayList<K> listaAbuscar) {
         return listaAbuscar.contains(objetoPreguntado);
     }
 
@@ -181,7 +181,59 @@ public class Bodega {
      * @return
      * @param <K>
      */
-    public <K> boolean eliminarObjeto(K elementoA_borrar, ArrayList<K> listaAborrar){
+    public static  <K> boolean eliminarObjeto(K elementoA_borrar, ArrayList<K> listaAborrar){
         return listaAborrar.remove(elementoA_borrar);
+    }
+    //-----------------------CRUD DE SECTORES-----------------------------------------
+
+    /**
+     * METODO ENCARGADO DE CREAR SECTORES DONDE SE GUADARAN LAS MERCANCIAS DE LOS CLIENTES
+     * @param nuevoSector
+     * @param listaSectores
+     * @return
+     */
+    public boolean agregarSector(Sector nuevoSector, ArrayList<Sector>listaSectores){
+        boolean flag=false;
+        if(!verificarExistencia(nuevoSector,listaSectores)){
+            this.listaSectoresBodega.add(nuevoSector);
+            flag=true;
+        }else{ System.out.println("el sector ya existe, no se puede volver a crear");}
+        return flag;
+    }
+
+    /**
+     * METODO ENCARGADO DE ELIMINAR LOS SECTORES DE LA LISTA DE SECTORES
+     * @param id
+     * @param listaSectores
+     */
+    public void eliminarSector(int id, ArrayList<Sector>listaSectores){
+        for (Sector aux:listaSectores) {
+            if(aux.getId()==id){ listaSectores.remove(aux);}
+            else{ System.out.println("el sector a eliminar no existe");}
+        }
+    }
+
+    /**
+     * METODO ENCARGADO DE OBTENER UNA INSTANCIA DE UN SECTOR DE LA LISTA DE SECTORES
+     * SEGUN UN ID RECIBIDO
+     * @param id
+     * @param listaSectores
+     * @return
+     */
+    public Sector obtenerSector(int id, ArrayList<Sector>listaSectores){
+        Sector sectorBuscado = new Sector();
+        for(Sector aux : listaSectores ){
+            if (aux.getId()==id){ sectorBuscado = aux; break ;}
+        }
+        return sectorBuscado;
+    }
+    public void actualizarSector(Sector sectorActualizado){
+        for (Sector aux:listaSectoresBodega) {
+            if(aux.getId()==sectorActualizado.getId()){
+                eliminarObjeto(aux,listaSectoresBodega);
+                agregarSector(sectorActualizado,listaSectoresBodega);
+                break;
+            }
+        }
     }
 }
