@@ -13,6 +13,10 @@ public class Mercancia {
         this.ubicacion = ubicacion;
     }
 
+    public Mercancia() {
+
+    }
+
     public String getNombre() {
         return nombre;
     }

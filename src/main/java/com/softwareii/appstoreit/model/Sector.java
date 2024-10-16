@@ -14,6 +14,10 @@ public class Sector {
         this.cupo = cupo;
     }
 
+    public Sector() {
+
+    }
+
     public ArrayList<Mercancia> getListaMercancias() {
         return listaMercancias;
     }
