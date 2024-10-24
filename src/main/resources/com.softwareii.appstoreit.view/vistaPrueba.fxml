@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #e7cbc3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.softwareii.appstoreit.controller.UserViewController">
+
+    <TabPane prefHeight="409.0" prefWidth="600" side="LEFT" styleClass="Fondo_TabPanes" stylesheets="@../EstilosCSS/EstilosSebas.css" tabClosingPolicy="UNAVAILABLE">
+        <!-- Pestaña Mercancía -->
+        <Tab style="-fx-background-color: #66ffee;" text="Mercancía">
+            <AnchorPane stylesheets="@../EstilosCSS/EstilosSebas.css">
+                <VBox alignment="TOP_LEFT" layoutX="20" layoutY="20" spacing="10" />
+                 <TextField fx:id="txtNombreMercancia" layoutX="54.0" layoutY="86.0" promptText="Nombre" />
+                  <Button fx:id="btnAgregarMercancia" layoutX="33.0" layoutY="325.0" onAction="#agregar_mercancia_btn" text="Agregar" />
+                  <Button fx:id="btnActualizarMercancia" layoutX="115.0" layoutY="325.0" onAction="#actualizar_mercancia_btn" text="Actualizar" />
+                  <Button fx:id="btnEliminarMercancia" layoutX="203.0" layoutY="326.0" onAction="#eliminar_mercancia_btn" text="Eliminar" />
+                  <TextField fx:id="txtBuscarMercancia_id" layoutX="109.0" layoutY="30.0" prefHeight="25.0" prefWidth="314.0" promptText="Buscar por ID o nombre" />
+                 <TextField fx:id="txt_ID_Mercancia" layoutX="54.0" layoutY="188.0" promptText="ID" />
+                 <TextField fx:id="txtFechaMercancia" layoutX="54.0" layoutY="249.0" promptText="Fecha" />
+                 <TextField fx:id="txtDuenoMercancia" layoutX="54.0" layoutY="142.0" promptText="Dueño" />
+                  <Button fx:id="btnBuscarMercancia_id" layoutX="425.0" layoutY="30.0" onAction="#buscar_mercancia_nombre_btn" text="Buscar" />
+            <ImageView fx:id="img_imagenDecorativa" fitHeight="142.0" fitWidth="200.0" layoutX="295.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true">
+               <effect>
+                  <ColorAdjust />
+               </effect>
+               <image>
+                  <Image url="@../com.softwareii.appstoreit.image/imagenprueba.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="txtDescripcionMercancia" layoutX="274.0" layoutY="241.0" prefHeight="17.0" prefWidth="234.0" text="iNFORMACION DE LA UBICACION DE LA MERCANCIA" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="9.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtInformacionMercancia" layoutX="293.0" layoutY="262.0" prefHeight="102.0" prefWidth="196.0" />
+            <Button fx:id="btnRecogerMercancia" layoutX="303.0" layoutY="370.0" mnemonicParsing="false" onAction="#recogerMercanciaDeBodega" prefHeight="29.0" prefWidth="177.0" text="Recoger Mercancia" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Button>
+            </AnchorPane>
+        </Tab>
+
+        <!-- Pestaña Usuario -->
+        <Tab style="-fx-background-color: #666666;" text="Usuario">
+            <AnchorPane>
+                <VBox alignment="TOP_LEFT" layoutX="146.0" layoutY="62.0" prefHeight="196.0" prefWidth="252.0" spacing="10">
+                    <TextField fx:id="txtUsuario" promptText="Usuario" />
+                    <TextField fx:id="txtContrasenaUsuario" promptText="Contraseña" />
+                    <TextField fx:id="txtNombreCliente" promptText="Nombre" />
+                    <TextField fx:id="txtIdCliente" promptText="ID" />
+                    <HBox spacing="10" />
+                </VBox>
+                  <Button fx:id="btnGuardarCambiosUsuario" layoutX="263.0" layoutY="267.0" prefHeight="34.0" prefWidth="71.0" text="Guardar" />
+                  <Button fx:id="btnEliminarCuentaUsuario" layoutX="383.0" layoutY="267.0" prefHeight="33.0" prefWidth="74.0" text="Eliminar" />
+                  <Button fx:id="btnSalirCerrarSesion" layoutX="130.0" layoutY="267.0" onAction="#salirAlLoginAction" prefHeight="35.0" prefWidth="58.0" text="Salir" />
+            </AnchorPane>
+        </Tab>
+
+        <!-- Pestaña Factura -->
+        <Tab style="-fx-background-color: #15516d;" text="Factura">
+            <AnchorPane>
+            <children>
+               <Button fx:id="btnGenerarFactura" layoutX="146.0" layoutY="32.0" mnemonicParsing="false" prefHeight="74.0" prefWidth="280.0" text="GENERAR FACTURA" textAlignment="CENTER">
+                  <font>
+                     <Font name="System Bold" size="23.0" />
+                  </font>
+               </Button>
+               <TextArea fx:id="txtVistaPreviaFactura" layoutX="78.0" layoutY="200.0" prefHeight="177.0" prefWidth="416.0" />
+               <TextField fx:id="txtRutaDeFacturaGenerada" layoutX="78.0" layoutY="166.0" prefHeight="25.0" prefWidth="413.0" />
+               <Label fx:id="lbl_IndicacionFactura" layoutX="78.0" layoutY="129.0" style="-fx-background-color: #008080;" text="FACTURA GENERADA EN LA RUTA: " textAlignment="CENTER" textFill="WHITE">
+                  <font>
+                     <Font name="System Bold Italic" size="18.0" />
+                  </font>
+               </Label>
+            </children></AnchorPane>
+        </Tab>
+
+        <!-- Pestaña Liquidar -->
+        <Tab style="-fx-background-color: #2e364d;" text="Liquidar">
+            <AnchorPane styleClass="Fondo_TabPanes" stylesheets="@../EstilosCSS/EstilosSebas.css">
+            <children>
+               <Label layoutX="139.0" layoutY="42.0" text="Pago de Facturas" textFill="#93ffa1">
+                  <font>
+                     <Font name="Comic Sans MS Bold" size="37.0" />
+                  </font>
+               </Label>
+               <Label layoutX="48.0" layoutY="173.0" prefHeight="16.0" prefWidth="183.0" text="Factura: " textFill="#93ffa1">
+                  <font>
+                     <Font name="Comic Sans MS Bold" size="19.0" />
+                  </font>
+               </Label>
+            </children></AnchorPane>
+        </Tab>
+    </TabPane>
+</AnchorPane>

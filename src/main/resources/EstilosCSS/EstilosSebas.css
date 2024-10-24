@@ -1,0 +1,18 @@
+.Fondo_TabPanes{
+    -fx-background-color: linear-gradient(to right,#082025,#134f5c);
+    border-radius: 15px;
+}
+/*-----------------------estilos de las pestañas------------------------  >  */
+#Color_pestanaTituloTabMercancia{
+    -fx-background-color:  #454546;
+}
+.Color_pestanaTituloTabUsuario{
+    -fx-background-color:   #666666;
+}
+.Color_pestanaTituloTabFactura{
+    -fx-background-color:    #15516d;
+}
+.Color_pestanaTituloTabLiquidar{
+    -fx-background-color:   #2e364d;
+}
+/*--------------------------fin de estilos de las pestañas--------------    > */

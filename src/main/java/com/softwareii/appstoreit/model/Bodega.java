@@ -34,10 +34,20 @@ public class Bodega implements Serializable {
         this.id = id;
     }
 
+    //-------------------QUEMAR DATOS DE PRUEBA---------------------------------{
+    Sector a1 = new Sector("ala norte",1009,20);
+    Mercancia m1 = new Mercancia("electrodos",12345678,"Sebastian",a1,"2 de marzo 2024");
+    public void inicializarDatos(){
+        listaSectoresBodega.add(a1);
+        listaMercanciasBodega.add(m1);
+    }
+
+    //--------------------------------------------------------------------------}
     /**
      * CONSTRUCTOR VACIO------------------------------------------------------------------------{
      */
     public Bodega() {
+        inicializarDatos();
     }
 
     /**
@@ -238,5 +248,66 @@ public class Bodega implements Serializable {
                 break;
             }
         }
+    }
+    /**
+     * ----------------------CRUD MERCANCIA-------------------------{
+     */
+    /**
+     * METODO QUE RECIBE UN OBJETO MERCANCIA PARA SER AGREGADO A LA LISTA DE LA CLASE
+     * Y POSTERIOR A LA "BASE DE DATOS" DEL PROGRAMA CON EL PATRON MODELFACTORY
+     * @param nuevaMercancia
+     * @param listaMercancias
+     * @return
+     */
+    public boolean agregarMercancia(Mercancia nuevaMercancia, ArrayList<Mercancia>listaMercancias) {
+        boolean flag=false;
+        if(!Bodega.verificarExistencia(nuevaMercancia, listaMercancias)){
+            listaMercancias.add(nuevaMercancia);
+            flag=true;
+        }else{
+            System.out.println("error al agregar la mercancia: "+nuevaMercancia.getNombre()+" , porque ya existe");
+        }
+        return flag;
+    }
+
+    /**
+     * METODO QUE A APRTIR DE UN ID BUSCA EL OBJETO EN LA LISTA ENTREGADA PARA OBTENERLO Y ENVIARLO
+     * @param id
+     * @param listaMaercancias
+     * @return
+     */
+    public Mercancia obtenerMercancia (int id,ArrayList<Mercancia>listaMaercancias){
+        Mercancia mercanciaBuscada=new Mercancia();
+        for (Mercancia aux : listaMaercancias) {
+            if(aux.getId() == id) { mercanciaBuscada=aux;break; }
+            else{ System.out.println("mercancia con id: " + id+", no encontrada"); }
+        }
+        return mercanciaBuscada;
+    }
+
+    /**
+     * METODO QUE RECIBE COMO PARAMETRO EL ID
+     * IDENTIFICADOR DE LA MERCANCIA, PARA BUSCARLO EN LA LISTA LOCAL Y ELIMINARLO
+     * @param id
+     * @param listaMercancias
+     */
+    public void eliminarMercancia (int id,ArrayList<Mercancia>listaMercancias){
+        for (Mercancia aux:listaMercancias){
+            if(aux.getId()==id){
+                listaMercancias.remove(aux);
+                break;
+            }
+        }
+    }
+
+
+    public void actualizarMercancia(Mercancia mercanciaParaActualizar) {
+        if (!verificarExistencia(mercanciaParaActualizar,listaMercanciasBodega)) {
+            for (Mercancia aux : listaMercanciasBodega){
+                if (aux.getId()==mercanciaParaActualizar.getId()){
+                    eliminarObjeto(aux,listaMercanciasBodega);
+                    agregarMercancia(mercanciaParaActualizar,listaMercanciasBodega);}
+            }
+        }else{ System.out.println("la mercancia ya existe con estos datos");}
     }
 }

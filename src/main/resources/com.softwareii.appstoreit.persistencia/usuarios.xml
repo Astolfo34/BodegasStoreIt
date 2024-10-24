@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="17.0.8" class="java.beans.XMLDecoder">
- <object class="com.softwareii.appstoreit.model.Bodega" id="Bodega0">
-  <void property="listaUsuariosPlataformaBodega">
-   <void method="add">
-    <object class="com.softwareii.appstoreit.model.Usuario">
-     <void property="password">
-      <string>1234567</string>
-     </void>
-     <void property="username">
-      <string>Kevin12</string>
-     </void>
-    </object>
-   </void>
+<java version="17.0.6" class="java.beans.XMLDecoder">
+ <object class="com.softwareii.appstoreit.model.Bodega" id="Bodega0"/>
+<void class="com.softwareii.appstoreit.model.Usuario" id="Usuario0">
+ <void property="username">
+  <string>Kevin12</string>
+ </void>
+ <void property="password">
+  <string>1234567</string>
+ </void>
+</void>
+<void class="com.softwareii.appstoreit.model.Bodega" id="Field0" method="getField">
+ <string>listaUsuariosPlataformaBodega</string>
+ <void id="ArrayList0" method="get">
+  <object idref="Bodega0"/>
+  <void method="add">
+   <object class="com.softwareii.appstoreit.model.Usuario">
+    <void property="password">
+     <string>1234</string>
+    </void>
+    <void property="username">
+     <string>tian</string>
+    </void>
+   </object>
   </void>
- </object>
+  <void method="add">
+   <object idref="Usuario0"/>
+  </void>
+ </void>
+</void>
+<void idref="ArrayList0"/>
 </java>

@@ -42,9 +42,25 @@ public class LoginController {
 
         if (modelFactoryController.verificarUsuario(usuario)) {
             showAlert(Alert.AlertType.INFORMATION, "Inicio Exitoso", "¡Bienvenido!");
+            abrirVentanaUsuario();
         } else {
             showAlert(Alert.AlertType.ERROR, "Error", "Error al iniciar sesion.");
         }
+    }
+
+    private void abrirVentanaUsuario() {
+        try {
+            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/com.softwareii.appstoreit.view/vistaPrueba.fxml"));
+            Parent root =(Parent) loader.load();
+            Stage stage = new Stage();
+            stage.setTitle("vista de usuario");
+            stage.setScene(new Scene(root));
+            stage.centerOnScreen();
+            stage.show();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
 
     @FXML

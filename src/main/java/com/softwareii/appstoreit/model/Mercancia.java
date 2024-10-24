@@ -5,12 +5,14 @@ public class Mercancia {
     private int id;
     private String dueño;
     private Sector ubicacion;
+    private String fecha;
 
-    public Mercancia(String nombre, int id, String dueño, Sector ubicacion) {
+    public Mercancia(String nombre, int id, String dueño, Sector ubicacion, String fecha) {
         this.nombre = nombre;
         this.id = id;
         this.dueño = dueño;
         this.ubicacion = ubicacion;
+        this.fecha = fecha;
     }
 
     public Mercancia() {
@@ -47,5 +49,13 @@ public class Mercancia {
 
     public void setUbicacion(Sector ubicacion) {
         this.ubicacion = ubicacion;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }
