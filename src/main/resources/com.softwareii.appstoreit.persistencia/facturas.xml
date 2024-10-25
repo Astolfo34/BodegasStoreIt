@@ -3,12 +3,12 @@
     <estadoMercancia>Finalizado</estadoMercancia>
     <fechaEntrada/>
     <fechaSalida/>
-    <idMercancia>2</idMercancia>
-    <nombreMercancia>Laptop Dell XPS 13</nombreMercancia>
+    <idMercancia>4</idMercancia>
+    <nombreMercancia>Celular iPhone 13</nombreMercancia>
     <operarioAsignado>
         <disponible>true</disponible>
         <id>1</id>
         <nombre>Operario 1</nombre>
     </operarioAsignado>
-    <total>420.0</total>
+    <total>280.0</total>
 </factura>

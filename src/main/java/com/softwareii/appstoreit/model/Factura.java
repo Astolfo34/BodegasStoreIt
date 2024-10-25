@@ -106,4 +106,19 @@ public class Factura {
     public void setOperarioAsignado(Operario operarioAsignado) { // Cambiado a Operario
         this.operarioAsignado = operarioAsignado;
     }
+
+    @Override
+    public String toString() {
+        return "Factura{" +
+                "fechaEntrada=" + fechaEntrada +
+                ", fechaSalida=" + fechaSalida +
+                ", total=" + total +
+                ", nombreMercancia='" + nombreMercancia + '\'' +
+                ", idMercancia='" + idMercancia + '\'' +
+                ", dueñoMercancia='" + dueñoMercancia + '\'' +
+                ", estadoMercancia='" + estadoMercancia + '\'' +
+                ", sectorAsignado=" + sectorAsignado +
+                ", operarioAsignado=" + operarioAsignado +
+                '}';
+    }
 }

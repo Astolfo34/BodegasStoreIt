@@ -62,4 +62,13 @@ public class Sector {
     public void setDisponible(boolean disponible) {
         this.disponible = disponible;
     }
+    @Override
+    public String toString() {
+        return "Sector{" +
+                "listaMercancias=" + mercancias +
+                ", nombre Sector='" + nombre + '\'' +
+                ", id del sector=" + id +
+                ", cupo del sector =" + cupo +
+                '}';
+    }
 }

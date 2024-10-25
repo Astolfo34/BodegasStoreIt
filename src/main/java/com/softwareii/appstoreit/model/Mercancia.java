@@ -9,7 +9,8 @@ public class Mercancia {
     private Operario operarioAsignado;
 
 
-    public Mercancia(String nombre, int id, String dueño, Sector ubicacion) {
+
+    public Mercancia(String nombre, int id, String dueño, Sector ubicacion, String fecha) {
         this.nombre = nombre;
         this.id = id;
         this.dueño = dueño;
@@ -52,8 +53,6 @@ public class Mercancia {
         this.sectorAsignado = sectorAsignado;
     }
 
-
-
     public Operario getOperarioAsignado() {
         return operarioAsignado;
     }
@@ -68,6 +67,19 @@ public class Mercancia {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Mercancia{" +
+                "nombre='" + nombre + '\'' +
+                ", id=" + id +
+                ", dueño='" + dueño + '\'' +
+                ", estado='" + estado + '\'' +
+                ", sectorAsignado=" + sectorAsignado +
+                ", operarioAsignado=" + operarioAsignado +
+                '}';
     }
 
 
