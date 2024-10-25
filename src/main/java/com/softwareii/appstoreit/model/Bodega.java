@@ -2,6 +2,9 @@ package com.softwareii.appstoreit.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import com.softwareii.appstoreit.utils.Persistencia;
+
+import javax.xml.bind.JAXBException;
 
 public class Bodega implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -35,19 +38,14 @@ public class Bodega implements Serializable {
     }
 
     //-------------------QUEMAR DATOS DE PRUEBA---------------------------------{
-    Sector a1 = new Sector("ala norte",1009,20);
-    Mercancia m1 = new Mercancia("electrodos",12345678,"Sebastian",a1,"2 de marzo 2024");
-    public void inicializarDatos(){
-        listaSectoresBodega.add(a1);
-        listaMercanciasBodega.add(m1);
-    }
+
+
 
     //--------------------------------------------------------------------------}
     /**
      * CONSTRUCTOR VACIO------------------------------------------------------------------------{
      */
     public Bodega() {
-        inicializarDatos();
     }
 
     /**
@@ -252,6 +250,31 @@ public class Bodega implements Serializable {
             }
         }
     }
+    public void actualizarMercancia(Mercancia mercanciaActualizada) {
+        if (!verificarExistencia(mercanciaActualizada, listaMercanciasBodega)) {
+            for (Mercancia mercancia : listaMercanciasBodega) {
+                if (mercancia.getId() == mercanciaActualizada.getId()) {
+                    mercancia.setOperarioAsignado(mercanciaActualizada.getOperarioAsignado());
+                    mercancia.setSector(mercanciaActualizada.getSectorAsignado());
+                    mercancia.setEstado(mercanciaActualizada.getEstado());
+
+                    if (mercanciaActualizada.getEstado().equalsIgnoreCase("finalizado")) {
+                        System.out.println("La mercancía con ID " + mercancia.getId() + " ha sido marcada como finalizada.");
+                    }
+
+                    break;
+                }
+            }
+        } else {
+            System.out.println("La mercancía ya existe con estos datos");
+        }
+
+        try {
+            Persistencia.guardarMercancias(listaMercanciasBodega);
+        } catch (JAXBException e) {
+            System.out.println("Error al guardar las mercancías: " + e.getMessage());
+        }
+    }
     /**
      * ----------------------CRUD MERCANCIA-------------------------{
      */
@@ -304,15 +327,7 @@ public class Bodega implements Serializable {
     }
 
 
-    public void actualizarMercancia(Mercancia mercanciaParaActualizar) {
-        if (!verificarExistencia(mercanciaParaActualizar,listaMercanciasBodega)) {
-            for (Mercancia aux : listaMercanciasBodega){
-                if (aux.getId()==mercanciaParaActualizar.getId()){
-                    eliminarObjeto(aux,listaMercanciasBodega);
-                    agregarMercancia(mercanciaParaActualizar,listaMercanciasBodega);}
-            }
-        }else{ System.out.println("la mercancia ya existe con estos datos");}
-    }
+
 
     public void actualizarUsuario(Usuario usuario_paraActualizar) {
         if(!verificarExistencia(usuario_paraActualizar,listaUsuariosPlataformaBodega)){

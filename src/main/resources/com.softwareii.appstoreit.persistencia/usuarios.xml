@@ -1,31 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<java version="19.0.2" class="java.beans.XMLDecoder">
- <object class="com.softwareii.appstoreit.model.Bodega" id="Bodega0"/>
-<void class="com.softwareii.appstoreit.model.Bodega" id="Field0" method="getField">
- <string>listaUsuariosPlataformaBodega</string>
- <void id="ArrayList0" method="get">
-  <object idref="Bodega0"/>
-  <void method="add">
-   <object class="com.softwareii.appstoreit.model.Usuario">
-    <void property="password">
-     <string>1234567</string>
-    </void>
-    <void property="username">
-     <string>Kevin12</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="com.softwareii.appstoreit.model.Usuario">
-    <void property="password">
-     <string>1234</string>
-    </void>
-    <void property="username">
-     <string>tian</string>
-    </void>
-   </object>
-  </void>
- </void>
-</void>
-<void idref="ArrayList0"/>
-</java>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<usuarios>
+    <usuario>
+        <password>m</password>
+        <username>m</username>
+    </usuario>
+</usuarios>

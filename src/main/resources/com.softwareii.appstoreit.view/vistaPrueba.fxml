@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane style="-fx-background-color: #e7cbc3;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.softwareii.appstoreit.controller.UserViewController">
+<AnchorPane style="-fx-background-color: #e7cbc3;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.softwareii.appstoreit.controller.UserViewController">
 
     <TabPane prefHeight="409.0" prefWidth="600" side="LEFT" styleClass="Fondo_TabPanes" stylesheets="@../EstilosCSS/EstilosSebas.css" tabClosingPolicy="UNAVAILABLE">
         <!-- Pestaña Mercancía -->
@@ -102,6 +102,7 @@
                      <Font name="Comic Sans MS Bold" size="19.0" />
                   </font>
                </Label>
+               <Button fx:id="btnGestionMercancias" layoutX="95.0" layoutY="329.0" mnemonicParsing="false" onAction="#GestionDeMercancias" text="Gestion de mercancias" />
             </children></AnchorPane>
         </Tab>
     </TabPane>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<factura>
+    <estadoMercancia>Finalizado</estadoMercancia>
+    <fechaEntrada/>
+    <fechaSalida/>
+    <idMercancia>4</idMercancia>
+    <nombreMercancia>Celular iPhone 13</nombreMercancia>
+    <operarioAsignado>
+        <disponible>true</disponible>
+        <id>1</id>
+        <nombre>Operario 1</nombre>
+    </operarioAsignado>
+    <total>280.0</total>
+</factura>

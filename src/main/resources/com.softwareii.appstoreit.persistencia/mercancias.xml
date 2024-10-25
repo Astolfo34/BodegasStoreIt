@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mercancias>
+    <mercancia>
+        <estado>Pendiente</estado>
+        <id>1</id>
+        <nombre>Televisor Samsung 55"</nombre>
+    </mercancia>
+    <mercancia>
+        <estado>Finalizado</estado>
+        <id>2</id>
+        <nombre>Laptop Dell XPS 13</nombre>
+        <operarioAsignado>
+            <disponible>true</disponible>
+            <id>1</id>
+            <nombre>Operario 1</nombre>
+        </operarioAsignado>
+    </mercancia>
+    <mercancia>
+        <estado>Finalizado</estado>
+        <id>3</id>
+        <nombre>Refrigerador LG</nombre>
+    </mercancia>
+    <mercancia>
+        <estado>Finalizado</estado>
+        <id>4</id>
+        <nombre>Celular iPhone 13</nombre>
+        <operarioAsignado>
+            <disponible>true</disponible>
+            <id>1</id>
+            <nombre>Operario 1</nombre>
+        </operarioAsignado>
+    </mercancia>
+    <mercancia>
+        <estado>Finalizado</estado>
+        <id>5</id>
+        <nombre>Tablet Samsung Galaxy Tab S7</nombre>
+    </mercancia>
+</mercancias>

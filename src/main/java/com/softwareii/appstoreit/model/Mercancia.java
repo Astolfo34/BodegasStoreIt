@@ -4,15 +4,17 @@ public class Mercancia {
     private String nombre;
     private int id;
     private String dueño;
-    private Sector ubicacion;
-    private String fecha;
+    private String estado;
+    private Sector sectorAsignado;
+    private Operario operarioAsignado;
+
+
 
     public Mercancia(String nombre, int id, String dueño, Sector ubicacion, String fecha) {
         this.nombre = nombre;
         this.id = id;
         this.dueño = dueño;
-        this.ubicacion = ubicacion;
-        this.fecha = fecha;
+        this.sectorAsignado = ubicacion;
     }
 
     public Mercancia() {
@@ -43,19 +45,42 @@ public class Mercancia {
         this.dueño = dueño;
     }
 
-    public Sector getUbicacion() {
-        return ubicacion;
+    public Sector getSectorAsignado() {
+        return sectorAsignado;
     }
 
-    public void setUbicacion(Sector ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setSector(Sector sectorAsignado) {
+        this.sectorAsignado = sectorAsignado;
     }
 
-    public String getFecha() {
-        return fecha;
+    public Operario getOperarioAsignado() {
+        return operarioAsignado;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setOperarioAsignado(Operario operarioAsignado) {
+        this.operarioAsignado = operarioAsignado;
     }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Mercancia{" +
+                "nombre='" + nombre + '\'' +
+                ", id=" + id +
+                ", dueño='" + dueño + '\'' +
+                ", estado='" + estado + '\'' +
+                ", sectorAsignado=" + sectorAsignado +
+                ", operarioAsignado=" + operarioAsignado +
+                '}';
+    }
+
+
 }

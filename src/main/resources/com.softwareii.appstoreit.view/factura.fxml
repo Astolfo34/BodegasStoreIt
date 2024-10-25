@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/20.0.1" fx:controller="com.softwareii.appstoreit.controller.FacturaController">
+    <VBox alignment="CENTER" prefHeight="469.0" prefWidth="300.0" spacing="10">
+        <Label style="-fx-font-size: 18px;" text="Factura de Mercancías Finalizadas" />
+
+        <ListView fx:id="mercanciasListView" prefHeight="200" prefWidth="300" />
+
+        <Label style="-fx-font-size: 16px;" text="Fecha de Entrada:" />
+        <DatePicker fx:id="entradaDatePicker" />
+
+        <Label style="-fx-font-size: 16px;" text="Fecha de Salida:" />
+        <DatePicker fx:id="salidaDatePicker" />
+
+        <Label fx:id="totalLabel" style="-fx-font-size: 16px;" text="Total: $0" />
+
+        <Button onAction="#generarFactura" text="Generar Factura" />
+    </VBox>
+</AnchorPane>

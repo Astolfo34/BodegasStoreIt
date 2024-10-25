@@ -9,6 +9,8 @@ module com.softwareii.appstoreit {
     opens com.softwareii.appstoreit to javafx.graphics;
     opens com.softwareii.appstoreit.controller to javafx.fxml;
     opens com.softwareii.appstoreit.model to java.xml.bind, java.base;
+    opens com.softwareii.appstoreit.utils to java.xml.bind;
+
 
 
     exports com.softwareii.appstoreit;

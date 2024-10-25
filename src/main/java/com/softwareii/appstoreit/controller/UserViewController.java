@@ -79,6 +79,8 @@ public class UserViewController {
 
         @FXML
         private Button btnBuscarMercancia_id;
+        @FXML
+        private Button btnGestionMercancias;
 
         @FXML
         private Button btnEliminarCuentaUsuario;
@@ -156,7 +158,6 @@ public class UserViewController {
                         mercanciaParaActualizar.setNombre(txtNombreMercancia.getText());
                         mercanciaParaActualizar.setDueño(txtDuenoMercancia.getText());
                         mercanciaParaActualizar.setId(Integer.parseInt(txt_ID_Mercancia.getText()));
-                        mercanciaParaActualizar.setFecha(txtFechaMercancia.getText());
 
                         modelFactoryController.actualizarMercanciaEnModelo(mercanciaParaActualizar);
                         showAlert(Alert.AlertType.INFORMATION,"MERCANCIA ACTUALIZADA", "la mercancia ha sido actualizada con exito");
@@ -176,7 +177,6 @@ public class UserViewController {
                         showAlert(Alert.AlertType.ERROR,"CAMPOS VACIDOS", "por vavor verifique que no hayan campos vacidos");
                         return;
                 }
-                mercanciaAcrear.setFecha(txtFechaMercancia.getText());
                 mercanciaAcrear.setId(Integer.parseInt(txt_ID_Mercancia.getText()));
                 mercanciaAcrear.setDueño(txtDuenoMercancia.getText());
                 mercanciaAcrear.setNombre(txtNombreMercancia.getText());
@@ -227,14 +227,12 @@ public class UserViewController {
 
         private void mostrarDatosMercancia(Mercancia mercanciaEncontrada) {
                 txtBuscarMercancia_id.setText("");
-                System.out.println("fecha de mercancia encontrada: "+mercanciaEncontrada.getFecha());
                 txtNombreMercancia.setText(mercanciaEncontrada.getNombre());
                 txtDuenoMercancia.setText(mercanciaEncontrada.getDueño());
                 txt_ID_Mercancia.setText((mercanciaEncontrada.getId())+"");
-                txtFechaMercancia.setText(mercanciaEncontrada.getFecha());
-                if(mercanciaEncontrada.getUbicacion()==null)
-                {mercanciaEncontrada.setUbicacion(new Sector("pendiente por asignar",0,0));}
-                txtInformacionMercancia.setText(ModelFactoryController.ORGANIZAR_TO_STRING((mercanciaEncontrada.getUbicacion().toString())));
+                if(mercanciaEncontrada.getSectorAsignado()==null)
+                {mercanciaEncontrada.setSector(new Sector("pendiente por asignar",0,0, true));}
+                txtInformacionMercancia.setText(ModelFactoryController.ORGANIZAR_TO_STRING((mercanciaEncontrada.getSectorAsignado().toString())));
         }
         //---------------------------------------------------------------------------------------------------fin buscar mercancia
         @FXML
@@ -287,6 +285,21 @@ public class UserViewController {
         void guardarUsuario_Action(ActionEvent event) {
 
         }
+        @FXML
+        void GestionDeMercancias(ActionEvent event) {
+                try {
+                        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/com.softwareii.appstoreit.view/agenteVentasView.fxml"));
+                        Parent root = (Parent) loader.load();
+                        Stage stage = new Stage();
+                        stage.setTitle("Gestion Mercancias");
+                        stage.setScene(new Scene(root));
+                        stage.centerOnScreen();
+                        stage.show();
+                } catch (Exception e) {
+                        e.printStackTrace();
+                }
+        }
+
 
 
     }
