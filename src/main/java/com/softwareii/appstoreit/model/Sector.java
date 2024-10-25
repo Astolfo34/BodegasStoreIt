@@ -49,4 +49,14 @@ public class Sector {
     public void setCupo(int cupo) {
         this.cupo = cupo;
     }
+
+    @Override
+    public String toString() {
+        return "Sector{" +
+                "listaMercancias=" + listaMercancias +
+                ", nombre Sector='" + nombre + '\'' +
+                ", id del sector=" + id +
+                ", cupo del sector =" + cupo +
+                '}';
+    }
 }

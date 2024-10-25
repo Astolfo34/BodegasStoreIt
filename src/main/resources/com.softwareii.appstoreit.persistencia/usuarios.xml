@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <java version="19.0.2" class="java.beans.XMLDecoder">
+<!-- ======= -->
+<!--<java version="17.0.6" class="java.beans.XMLDecoder">-->
+<!-->>>>>>> prueba_fusion2 -->
  <object class="com.softwareii.appstoreit.model.Bodega" id="Bodega0"/>
 <void class="com.softwareii.appstoreit.model.Usuario" id="Usuario0">
  <void property="username">
@@ -16,7 +20,11 @@
   <void method="add">
    <object class="com.softwareii.appstoreit.model.Usuario">
     <void property="password">
-     <string>1111</string>
+
+    <!-- <string>1111</string> -->
+<!--=======  -->
+     <string>1234</string>
+<!-->>>>>>> prueba_fusion2 -->
     </void>
     <void property="username">
      <string>tian</string>
