@@ -42,6 +42,12 @@ public class ModelFactoryController {
             e.printStackTrace();
         }
     }
+    public void actualizarUsuario(Usuario usuarioAActualizar) {
+        bodega.actualizarUsuario(usuarioAActualizar);
+        try{
+            ArchivoUtil.salvarRecursoSerializadoXML(Persistencia.USUARIOS,bodega);
+        } catch (IOException e){ e.printStackTrace(); }
+    }
     public Mercancia buscarMercanciaEnBodega(Mercancia mercanciaBuscada) {
         Mercancia resultado = new Mercancia();
         //System.out.println("nombre: "+mercanciaBuscada.getNombre());  System.out.println("id: "+mercanciaBuscada.getId());

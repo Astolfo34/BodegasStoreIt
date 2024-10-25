@@ -53,13 +53,13 @@
         </Tab>
 
         <!-- Pestaña Usuario -->
-        <Tab style="-fx-background-color: #666666;" text="Usuario">
+        <Tab fx:id="tabUsuarioVista" style="-fx-background-color: #666666;" text="Usuario">
             <AnchorPane>
                 <VBox alignment="TOP_LEFT" layoutX="146.0" layoutY="62.0" prefHeight="196.0" prefWidth="252.0" spacing="10">
                     <TextField fx:id="txtUsuario" promptText="Usuario" />
                     <TextField fx:id="txtContrasenaUsuario" promptText="Contraseña" />
-                    <TextField fx:id="txtNombreCliente" promptText="Nombre" />
-                    <TextField fx:id="txtIdCliente" promptText="ID" />
+                    <TextField fx:id="txtNombreClienteUsuario" promptText="Nombre" />
+                    <TextField fx:id="txtIdClienteUsuario" promptText="ID" />
                     <HBox spacing="10" />
                 </VBox>
                   <Button fx:id="btnGuardarCambiosUsuario" layoutX="237.0" layoutY="267.0" onAction="#guardarUsuario_Action" prefHeight="34.0" prefWidth="71.0" text="Guardar" />

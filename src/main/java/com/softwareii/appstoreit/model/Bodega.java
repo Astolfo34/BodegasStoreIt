@@ -197,6 +197,9 @@ public class Bodega implements Serializable {
     public static  <K> boolean eliminarObjeto(K elementoA_borrar, ArrayList<K> listaAborrar){
         return listaAborrar.remove(elementoA_borrar);
     }
+    public  static  <K> boolean agregarObjeto(K elemento_a_Agregar, ArrayList<K>listaABORRAR){
+        return  listaABORRAR.add(elemento_a_Agregar);
+    }
     //-----------------------CRUD DE SECTORES-----------------------------------------
 
     /**
@@ -309,5 +312,17 @@ public class Bodega implements Serializable {
                     agregarMercancia(mercanciaParaActualizar,listaMercanciasBodega);}
             }
         }else{ System.out.println("la mercancia ya existe con estos datos");}
+    }
+
+    public void actualizarUsuario(Usuario usuario_paraActualizar) {
+        if(!verificarExistencia(usuario_paraActualizar,listaUsuariosPlataformaBodega)){
+            for(Usuario aux : listaUsuariosPlataformaBodega){
+                if (    aux.getUsername().equals(usuario_paraActualizar.getUsername()) ||
+                        aux.getPassword().equals(usuario_paraActualizar.getPassword())){
+                    eliminarObjeto(aux,listaUsuariosPlataformaBodega);
+                    agregarObjeto(usuario_paraActualizar,listaUsuariosPlataformaBodega);
+                }
+            }
+        }else{ System.out.println("el usuario no existe por nombre o contraseña"); }
     }
 }

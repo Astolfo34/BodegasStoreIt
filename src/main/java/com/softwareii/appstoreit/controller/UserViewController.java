@@ -69,6 +69,9 @@ public class UserViewController {
         //-------------------------------------------------------FIN DE METODOS ESPECIFICOS  |^|  -----------------
         private ModelFactoryController modelFactoryController;
         @FXML
+        private Tab tabUsuarioVista;
+
+        @FXML
         private Button btnActualizarMercancia;
 
         @FXML
@@ -114,10 +117,10 @@ public class UserViewController {
         private TextField txtFechaMercancia;
 
         @FXML
-        private TextField txtIdCliente;
+        private TextField txtIdClienteUsuario;
 
         @FXML
-        private TextField txtNombreCliente;
+        private TextField txtNombreClienteUsuario;
 
         @FXML
         private TextField txtNombreMercancia;
@@ -242,6 +245,7 @@ public class UserViewController {
 
         }
 
+
         @FXML
         void salirAlLoginAction(){
                 Stage stage = application.getPrimaryStage();
@@ -251,8 +255,29 @@ public class UserViewController {
 
         @FXML
         void actualizarUsuario_Action(ActionEvent event) {
-
+                Usuario usuarioA_Actualizar = new Usuario();
+                if(validarDatosValidosUsuario()){
+                        usuarioA_Actualizar = obtenerDatosUsuarioController();
+                        modelFactoryController.actualizarUsuario(usuarioA_Actualizar);
+                }else{
+                        showAlert(Alert.AlertType.ERROR, "LOS CAMPOS NO PUEDEN ESTAR VACIDOS", "ingrese datos validos o existentes");
+                }
         }
+
+        private Usuario obtenerDatosUsuarioController() {
+                Usuario usuarioAux = new Usuario();
+                usuarioAux.setUsername(txtUsuario.getText());
+                usuarioAux.setPassword(txtUsuario.getText());
+                return  usuarioAux;
+        }
+
+        private boolean validarDatosValidosUsuario() {
+                if (txtUsuario.getText().isEmpty() || txtContrasenaUsuario.getText().isEmpty()
+                  ||txtNombreClienteUsuario.getText().isEmpty()|| txtIdClienteUsuario.getText().isEmpty())
+                { return false;}
+                return true;
+        }
+
         @FXML
         void eliminarUsuario_Action(ActionEvent event) {
 
