@@ -16,6 +16,14 @@ import javafx.stage.Stage;
 
 public class LoginController {
 
+    //---------instancias necesarias de la aplicacion para administrar las ventanas de forma profesional----
+    private Main application;
+
+    public void setApplication(Main application) {
+        this.application = application;
+    }
+    //---------fin de instancias necesarias para administrar la aplicacion-------------------------------
+
     public void initialize() {
         modelFactoryController = ModelFactoryController.getInstance();
     }
@@ -42,26 +50,12 @@ public class LoginController {
 
         if (modelFactoryController.verificarUsuario(usuario)) {
             showAlert(Alert.AlertType.INFORMATION, "Inicio Exitoso", "¡Bienvenido!");
-            abrirVentanaUsuario();
+            application.abrirVentanaUsuario();
         } else {
             showAlert(Alert.AlertType.ERROR, "Error", "Error al iniciar sesion.");
         }
     }
 
-    private void abrirVentanaUsuario() {
-        try {
-            FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/com.softwareii.appstoreit.view/vistaPrueba.fxml"));
-            Parent root =(Parent) loader.load();
-            Stage stage = new Stage();
-            stage.setTitle("vista de usuario");
-            stage.setScene(new Scene(root));
-            stage.centerOnScreen();
-            stage.show();
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
-    }
 
     @FXML
     public void irARegistrar(ActionEvent event) {

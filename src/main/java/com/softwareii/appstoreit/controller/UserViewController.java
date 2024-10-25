@@ -20,6 +20,13 @@ import java.util.Objects;
 
 
 public class UserViewController {
+        //---------instancias necesarias de la aplicacion para administrar las ventanas de forma profesional----
+        private Main application;
+        public void setApplication(Main appMainEjecutor){
+                this.application = appMainEjecutor;
+        }
+        //---------fin de instancias necesarias para administrar la aplicacion----------------------------------
+
         @FXML
         void initialize(){
                 modelFactoryController = ModelFactoryController.getInstance();
@@ -84,6 +91,9 @@ public class UserViewController {
 
         @FXML
         private Button btnSalirCerrarSesion;
+
+        @FXML
+        private Button btnActualizarUsuario;
 
         @FXML
         private Label lbl_IndicacionFactura;
@@ -231,10 +241,28 @@ public class UserViewController {
                 limpiarDatosMercancia();
 
         }
+
         @FXML
         void salirAlLoginAction(){
+                Stage stage = application.getPrimaryStage();
+                stage.close();
+                application.mostrarVentanaPrincipal();
+        }
+
+        @FXML
+        void actualizarUsuario_Action(ActionEvent event) {
 
         }
+        @FXML
+        void eliminarUsuario_Action(ActionEvent event) {
+
+        }
+
+        @FXML
+        void guardarUsuario_Action(ActionEvent event) {
+
+        }
+
 
     }
 

@@ -62,9 +62,10 @@
                     <TextField fx:id="txtIdCliente" promptText="ID" />
                     <HBox spacing="10" />
                 </VBox>
-                  <Button fx:id="btnGuardarCambiosUsuario" layoutX="263.0" layoutY="267.0" prefHeight="34.0" prefWidth="71.0" text="Guardar" />
-                  <Button fx:id="btnEliminarCuentaUsuario" layoutX="383.0" layoutY="267.0" prefHeight="33.0" prefWidth="74.0" text="Eliminar" />
-                  <Button fx:id="btnSalirCerrarSesion" layoutX="130.0" layoutY="267.0" onAction="#salirAlLoginAction" prefHeight="35.0" prefWidth="58.0" text="Salir" />
+                  <Button fx:id="btnGuardarCambiosUsuario" layoutX="237.0" layoutY="267.0" onAction="#guardarUsuario_Action" prefHeight="34.0" prefWidth="71.0" text="Guardar" />
+                  <Button fx:id="btnEliminarCuentaUsuario" layoutX="361.0" layoutY="268.0" onAction="#eliminarUsuario_Action" prefHeight="33.0" prefWidth="74.0" text="Eliminar" />
+                  <Button fx:id="btnSalirCerrarSesion" layoutX="470.0" layoutY="360.0" onAction="#salirAlLoginAction" prefHeight="35.0" prefWidth="58.0" text="Salir" />
+            <Button fx:id="btnActualizarUsuario" layoutX="107.0" layoutY="266.0" mnemonicParsing="false" onAction="#actualizarUsuario_Action" prefHeight="36.0" prefWidth="79.0" text="Actualizar" />
             </AnchorPane>
         </Tab>
 
