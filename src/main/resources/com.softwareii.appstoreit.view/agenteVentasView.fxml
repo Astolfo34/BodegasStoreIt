@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.softwareii.appstoreit.controller.AgenteVentasController">
+    <Label style="-fx-font-size: 20px;" text="Gestión de Mercancías" />
+
+    <HBox spacing="10">
+        <!-- Tabla de Mercancías Pendientes -->
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 14px;" text="Mercancías Pendientes" />
+            <TableView fx:id="tablaPendientes">
+                <columns>
+                    <TableColumn fx:id="columnaIdPendiente" text="ID" />
+                    <TableColumn fx:id="columnaNombrePendiente" text="Nombre" />
+                    <TableColumn fx:id="columnaDuenoPendiente" text="Operario" />
+                    <TableColumn fx:id="columnaEstadoPendiente" text="Sector" />
+                </columns>
+            </TableView>
+            <Button fx:id="btnAsignarOp" onAction="#asignarOperarioYSector" text="Asignar Operario y Sector" />
+        </VBox>
+
+        <!-- Tabla de Mercancías Finalizadas -->
+        <VBox spacing="10">
+            <Label style="-fx-font-size: 14px;" text="Mercancías Finalizadas" />
+            <TableView fx:id="tablaFinalizadas">
+                <columns>
+                    <TableColumn fx:id="columnaIdFinalizada" text="ID" />
+                    <TableColumn fx:id="columnaNombreFinalizada" text="Nombre" />
+                    <TableColumn fx:id="columnaDuenoFinalizada" text="Operario" />
+                    <TableColumn fx:id="columnaEstadoFinalizada" text="Sector" />
+                </columns>
+            </TableView>
+         <Button fx:id="btnGenerarFactura" mnemonicParsing="false" onAction="#GenerarFactura" prefHeight="25.0" prefWidth="140.0" text="Generar Factura" />
+        </VBox>
+    </HBox>
+</VBox>

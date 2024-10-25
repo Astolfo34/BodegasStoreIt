@@ -42,6 +42,17 @@ public class LoginController {
 
         if (modelFactoryController.verificarUsuario(usuario)) {
             showAlert(Alert.AlertType.INFORMATION, "Inicio Exitoso", "¡Bienvenido!");
+            try {
+                FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/com.softwareii.appstoreit.view/agenteVentasView.fxml"));
+                Parent root = (Parent) loader.load();
+                Stage stage = new Stage();
+                stage.setTitle("Registrar");
+                stage.setScene(new Scene(root));
+                stage.centerOnScreen();
+                stage.show();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else {
             showAlert(Alert.AlertType.ERROR, "Error", "Error al iniciar sesion.");
         }

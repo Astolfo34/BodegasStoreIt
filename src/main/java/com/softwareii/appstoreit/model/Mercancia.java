@@ -4,13 +4,16 @@ public class Mercancia {
     private String nombre;
     private int id;
     private String dueño;
-    private Sector ubicacion;
+    private String estado;
+    private Sector sectorAsignado;
+    private Operario operarioAsignado;
+
 
     public Mercancia(String nombre, int id, String dueño, Sector ubicacion) {
         this.nombre = nombre;
         this.id = id;
         this.dueño = dueño;
-        this.ubicacion = ubicacion;
+        this.sectorAsignado = ubicacion;
     }
 
     public Mercancia() {
@@ -41,11 +44,31 @@ public class Mercancia {
         this.dueño = dueño;
     }
 
-    public Sector getUbicacion() {
-        return ubicacion;
+    public Sector getSectorAsignado() {
+        return sectorAsignado;
     }
 
-    public void setUbicacion(Sector ubicacion) {
-        this.ubicacion = ubicacion;
+    public void setSector(Sector sectorAsignado) {
+        this.sectorAsignado = sectorAsignado;
     }
+
+
+
+    public Operario getOperarioAsignado() {
+        return operarioAsignado;
+    }
+
+    public void setOperarioAsignado(Operario operarioAsignado) {
+        this.operarioAsignado = operarioAsignado;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+
 }

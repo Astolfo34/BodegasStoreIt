@@ -1,10 +1,14 @@
 package com.softwareii.appstoreit.model;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.softwareii.appstoreit.model.Bodega;
 
 public class AgenteVenta {
     ArrayList<Venta>listaVentas=new ArrayList<Venta>();
+    private List<Mercancia> mercanciasPendientes;
+    private List<Mercancia> mercanciasFinalizadas;
     private String nompre;
     private int id;
 

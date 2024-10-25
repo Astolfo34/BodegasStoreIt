@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<factura>
+    <estadoMercancia>Finalizado</estadoMercancia>
+    <fechaEntrada/>
+    <fechaSalida/>
+    <idMercancia>2</idMercancia>
+    <nombreMercancia>Laptop Dell XPS 13</nombreMercancia>
+    <operarioAsignado>
+        <disponible>true</disponible>
+        <id>1</id>
+        <nombre>Operario 1</nombre>
+    </operarioAsignado>
+    <total>420.0</total>
+</factura>

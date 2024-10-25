@@ -3,7 +3,9 @@ import com.softwareii.appstoreit.model.Bodega;
 import com.softwareii.appstoreit.model.Usuario;
 import com.softwareii.appstoreit.utils.ArchivoUtil;
 import com.softwareii.appstoreit.utils.Persistencia;
+import com.softwareii.appstoreit.utils.StoreItUtils;
 
+import javax.xml.bind.JAXBException;
 import java.io.IOException;
 
 public class ModelFactoryController {
@@ -20,9 +22,26 @@ public class ModelFactoryController {
 
     public ModelFactoryController() {
         try {
-            bodega = (Bodega) ArchivoUtil.cargarRecursoSerializadoXML(Persistencia.USUARIOS);
-        } catch (Exception e) {
             bodega = new Bodega();
+            bodega.setListaMercanciasBodega(Persistencia.cargarMercancias());  // Carga mercancías desde XML
+            bodega = StoreItUtils.inicializarDatos();  // Sobrescribe la bodega, posiblemente vacía
+            System.out.println("Mercancías cargadas: " + bodega.getListaMercanciasBodega().size());
+        } catch (Exception e) {
+            e.printStackTrace();
+            bodega = new Bodega();
+        }
+    }
+
+    public Bodega getBodega() {
+        return bodega;
+    }
+
+    public void agregarUsuario(Usuario usuario) {
+        bodega.getListaUsuariosPlataformaBodega().add(usuario);
+        try {
+            Persistencia.guardarUsuarios(bodega.getListaUsuariosPlataformaBodega());
+        } catch (JAXBException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -34,12 +53,5 @@ public class ModelFactoryController {
         return bodega.getListaUsuariosPlataformaBodega().contains(usuario);
     }
 
-    public void agregarUsuario(Usuario usuario) {
-        bodega.getListaUsuariosPlataformaBodega().add(usuario);
-        try {
-            ArchivoUtil.salvarRecursoSerializadoXML(Persistencia.USUARIOS, bodega);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+
 }

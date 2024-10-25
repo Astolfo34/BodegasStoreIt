@@ -2,6 +2,9 @@ package com.softwareii.appstoreit.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import com.softwareii.appstoreit.utils.Persistencia;
+
+import javax.xml.bind.JAXBException;
 
 public class Bodega implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -237,6 +240,27 @@ public class Bodega implements Serializable {
                 agregarSector(sectorActualizado,listaSectoresBodega);
                 break;
             }
+        }
+    }
+    public void actualizarMercancia(Mercancia mercanciaActualizada) {
+        for (Mercancia mercancia : listaMercanciasBodega) {
+            if (mercancia.getId() == mercanciaActualizada.getId()) {
+                mercancia.setOperarioAsignado(mercanciaActualizada.getOperarioAsignado());
+                mercancia.setSector(mercanciaActualizada.getSectorAsignado());
+                mercancia.setEstado(mercanciaActualizada.getEstado());
+
+                // Si el estado indica que ya está finalizada, imprime un mensaje de confirmación
+                if (mercanciaActualizada.getEstado().equalsIgnoreCase("finalizado")) {
+                    System.out.println("La mercancía con ID " + mercancia.getId() + " ha sido marcada como finalizada.");
+                }
+
+                break;
+            }
+        }
+        try {
+            Persistencia.guardarMercancias(listaMercanciasBodega);
+        } catch (JAXBException e) {
+            System.out.println("Error al guardar las mercancías: " + e.getMessage());
         }
     }
 }
